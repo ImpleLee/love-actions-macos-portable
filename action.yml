@@ -276,8 +276,8 @@ runs:
         const lovePbxprojPath = './love-actions-macos-portable/love/platform/xcode/love.xcodeproj/project.pbxproj';
         const loveProject = xcode.project(lovePbxprojPath).parseSync();
         const loveTarget = 'love-macosx'
-        loveProject.updateBuildProperty('CODE_SIGN_IDENTITY', '"Developer ID Application"', configuration, loveTarget);
-        loveProject.updateBuildProperty('CODE_SIGN_STYLE', '"Manual"', configuration, loveTarget);
+        // loveProject.updateBuildProperty('CODE_SIGN_IDENTITY', '"Developer ID Application"', configuration, loveTarget);
+        // loveProject.updateBuildProperty('CODE_SIGN_STYLE', '"Manual"', configuration, loveTarget);
         loveProject.updateBuildProperty('DEVELOPMENT_TEAM', '${{ inputs.team-id }}', configuration, loveTarget);
         loveProject.updateBuildProperty('MACOSX_DEPLOYMENT_TARGET', '10.9', configuration, loveTarget);
         loveProject.updateBuildProperty('MARKETING_VERSION', '${{ inputs.version-string }}', configuration, loveTarget);
@@ -368,8 +368,8 @@ runs:
     - name: Build MacOS app
       env:
         ARCHIVE_PATH: ./love-actions-macos-portable/archive.xcarchive
-        KEYCHAIN_PATH: ./love-actions-macos-portable/build.keychain
-        KEYCHAIN_PASSWORD: build_keychain_password
+        # KEYCHAIN_PATH: ./love-actions-macos-portable/build.keychain
+        # KEYCHAIN_PASSWORD: build_keychain_password
       shell: bash
       run: |
         security unlock-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
