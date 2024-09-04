@@ -372,7 +372,7 @@ runs:
         # KEYCHAIN_PASSWORD: build_keychain_password
       shell: bash
       run: |
-        security unlock-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
+        # security unlock-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
 
         xcodebuild clean archive -quiet \
         -project ./love-actions-macos-portable/love/platform/xcode/love.xcodeproj \
